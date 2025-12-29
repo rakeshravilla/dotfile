@@ -1,0 +1,10 @@
+git
+curl
+wget
+jq
+fzf
+ripgrep
+fd-find
+bat
+zoxide
+zsh

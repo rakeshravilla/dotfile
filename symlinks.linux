@@ -1,0 +1,4 @@
+# Linux Specific Symlinks
+$(pwd)/vscode/settings.json:$HOME/.config/Code/User/settings.json
+$(pwd)/vscode/keybindings.json:$HOME/.config/Code/User/keybindings.json
+# Add linux specific symlinks here if needed

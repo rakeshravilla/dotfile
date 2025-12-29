@@ -1,0 +1,13 @@
+git
+awscli
+jq
+fzf
+ripgrep
+fd
+bat
+eza
+zoxide
+delta
+gh
+snowflake-cli
+uv
