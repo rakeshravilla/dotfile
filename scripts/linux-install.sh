@@ -8,6 +8,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 install_apt_packages() {
     info "Detected Linux (Ubuntu/Debian). Updating apt and installing core packages..."
     
+    # Add Neovim PPA for latest version (0.10+) since 0.9.5 is missing features (ge, etc.)
+    # Note: Using unstable PPA because stable is lagging for Noble (24.04)
+    if ! grep -q "neovim-ppa/unstable" /etc/apt/sources.list.d/* 2>/dev/null; then
+        info "Adding Neovim unstable PPA..."
+        sudo add-apt-repository -y ppa:neovim-ppa/unstable
+    fi
+
     sudo apt update
     # sudo apt upgrade -y # Optional: might be too aggressive for some users
 
@@ -38,8 +45,10 @@ install_apt_packages() {
         zsh-syntax-highlighting
         zsh-autosuggestions
         
-        # Editors
+        # Editors & Plugins Support
         neovim
+        luarocks
+        liblua5.1-0-dev
     )
 
     info "Installing packages: ${packages[*]}"
